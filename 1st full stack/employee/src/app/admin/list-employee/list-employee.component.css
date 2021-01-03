@@ -1,0 +1,32 @@
+.bg_card{
+
+    background-color: tomato;
+    color: antiquewhite;
+}
+
+.mat-card{
+    cursor: pointer;
+}
+.view_border{
+    border: 12px solid #D0605E;
+}
+.height-50px{
+    height: 200px;
+}
+img{
+width: 200px;
+height: 200px;
+}
+.padding-left-145{
+    padding-left: 145px;
+}
+.label-color{
+    color:#0E78F2
+}
+.width-50-h-50{
+    width: 50px;
+    height: 50px;
+}
+em{
+    color: red;
+}

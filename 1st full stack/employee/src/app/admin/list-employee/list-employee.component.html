@@ -1,0 +1,318 @@
+<!-- <div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <form [formGroup]="userForm">
+                    <div class="row">
+                    
+
+                        <mat-form-field class="col-md-4 ">
+                            <mat-label class="text-success">Employee Name</mat-label>
+                            <input matInput formControlName="emp_name">
+                        </mat-form-field>
+
+                        <mat-form-field class="col-md-4 ">
+                            <mat-label class="text-success">Email</mat-label>
+                            <input matInput formControlName="emp_email">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-md-4 ">
+                            <mat-label class="text-success">Mobile Number</mat-label>
+                            <input matInput formControlName="emp_mobile">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="col-md-4 ">
+                            <mat-label class="text-success">Date of Birth</mat-label>
+                            <input matInput [matDatepicker]="dateofbirth" formControlName="emp_dob" (click)="dateofbirth.open()" [max]="TodayDate">
+
+                            <mat-datepicker-toggle [for]="dateofbirth" matSuffix></mat-datepicker-toggle>
+                            <mat-datepicker #dateofbirth></mat-datepicker>
+                        </mat-form-field>
+                        <mat-form-field class="col-md-4 ">
+                            <mat-label class="text-success">Date of Joining</mat-label>
+                            <input matInput [matDatepicker]="dateofjoin" formControlName="emp_doj" (click)="dateofjoin.open()" [max]="TodayDate">
+
+                            <mat-datepicker-toggle [for]="dateofjoin" matSuffix></mat-datepicker-toggle>
+                            <mat-datepicker #dateofjoin></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div formGroupName="emp_address">
+                        <div class="row">
+                            <mat-form-field class="col-md-4 ">
+                                <mat-label class="text-success">Street Name</mat-label>
+                                <input matInput formControlName="local">
+
+                            </mat-form-field>
+
+                            <mat-form-field class="col-md-4 ">
+                                <mat-label class="text-success">City</mat-label>
+                                <input matInput formControlName="city">
+
+                            </mat-form-field>
+
+                            <mat-form-field class="col-md-4">
+                                <mat-label class="text-success">State</mat-label>
+                                <input matInput formControlName="state">
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-form-field class="col-md-6 ">
+                                <mat-label class="text-success">Country</mat-label>
+                                <input matInput formControlName="country">
+                            </mat-form-field>
+
+                            <mat-form-field class="col-md-6 ">
+                                <mat-label class="text-success">Pin Code</mat-label>
+                                <input matInput formControlName="pincode">
+
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-12 text-center">
+                        <button class="btn btn-success" (click)="submit()" [disabled]="userForm.invalid"><i
+    class="fa fa-save "></i>&nbsp;Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="row">
+    
+    <div class=" offset-md-2 col-md-5 ">
+        <div class="text-center">
+            <h3 > Employee Details</h3>
+                </div>
+        <div class="">
+            <!-- |filterBasedOnName:search -->
+            <mat-form-field class="col-md-12 ">
+                <mat-label class="text-success">Search</mat-label>
+            <input class="" matInput [(ngModel)]="search" placeholder="Search By Name" (change)="searchbyname()" >
+        </mat-form-field>
+            <div *ngFor="let emp of dataSource|filterBasedOnName:search">
+                <mat-card *ngIf="emp. emp_email != this.login.username" [ngClass]="{'bg_card' : emp._id == selectedId}" (click)="selectid(emp._id)">
+                    <div class="row">
+<div class="col-md-9">
+    <div class="row">
+                        <div class="col-md-6">
+                            Name
+                        </div>
+                        <div class="col-md-6">
+                            {{emp.emp_name}}
+                        </div>
+                        <div class="col-md-6">
+                            Position
+                        </div>
+                        <div class="col-md-6">
+                            {{emp.emp_position}}
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-md-3">
+<img class="width-50-h-50 rounded-circle" [src]="emp.image_url!=null?emp.image_url:myImgUrl" >
+                    </div>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div *ngIf="!isEdit">
+        <div *ngIf="SelectedEmployee!=null" class="card mx-3 view_border h-100">
+            <div class="text-right">
+            <i class="fa fa-pencil text-primary" aria-hidden="true" (click)="editEmployee()"></i>&nbsp;
+            <i class="fa fa-trash text-danger" aria-hidden="true" (click)="deleteEmployee()"></i>
+        </div>
+            <div class="height-200px text-center mt-3">
+<img class="rounded-circle" [src]="SelectedEmployee.image_url!=null?SelectedEmployee.image_url:myImgUrl">
+            </div>
+            <div class="row padding-left-145">
+                <div class="w-100 d-flex">
+                <div class="col-md-3 label-color">
+                    Name :
+                </div>
+                <div class="">
+                    {{SelectedEmployee.emp_name}}
+                </div>
+            </div>
+            <div class="w-100 d-flex">
+                <div class="col-md-3 label-color">
+                    Email :
+                </div>
+                <div class="">
+                    {{SelectedEmployee.emp_email}}
+                </div>
+            </div>
+            <div class="w-100 d-flex">
+                <div class="col-md-3 label-color">
+                    Mobile :
+                </div>
+                <div class="">
+                    {{SelectedEmployee.emp_mobile}}
+                </div>
+            </div>
+            <div class="w-100 d-flex">
+                <div class="col-md-3 label-color">
+                    Date Of Birth :
+                </div>
+                <div class="">
+                    {{SelectedEmployee.emp_dob}}
+                </div>
+            </div>
+            <div class="w-100 d-flex">
+                <div class="col-md-3 label-color">
+                    Date of Joining :
+                </div>
+                <div class="">
+                    {{SelectedEmployee.emp_doj}}
+                </div>
+            </div>
+            <div class="w-100 d-flex">
+                <div class="col-md-3 label-color">
+                    Position :
+                </div>
+                <div class="">
+                    {{SelectedEmployee.emp_position}}
+                </div>
+            </div>
+            <div class="w-100 d-flex">
+                <div class="col-md-3 label-color">
+                    local : 
+                </div>
+                <div >
+                    {{SelectedEmployee.emp_address.local}}
+                </div>
+            </div>
+            <div class="w-100 d-flex">
+                <div class="col-md-3 label-color">
+                    State :
+                </div>
+                <div >
+                    {{SelectedEmployee.emp_address.state}}
+                </div>
+            </div>
+            <div class="w-100 d-flex">
+                <div class="col-md-3 label-color">
+                    country :
+                </div>
+                <div class="">
+                    {{SelectedEmployee.emp_address.country}}
+                </div>
+            </div>
+            <div class="w-100 d-flex">
+                <div class="col-md-3 label-color">
+                    Pincode :
+                </div>
+                <div class="">
+                    {{SelectedEmployee.emp_address.pincode}}
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+    <div *ngIf="isEdit" class="card mx-3 view_border h-100">
+        <div class="text-center text-primary">
+       <h5> Update Employee </h5>
+    </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <form [formGroup]="userForm">
+                            <div class="row">
+                                <div class="height-200px w-100 text-center mt-3">
+                                    <img class="rounded-circle" [src]="SelectedEmployee.image_url!=null?SelectedEmployee.image_url:myImgUrl">
+                                                </div>
+                                                <input class="upload" id="file_browse" title="Browse image" type="file" (change)="onFileChange($event)" />
+                                <mat-form-field class="col-md-12 ">
+                                    <mat-label class="text-success">Employee Name <em>*</em></mat-label> 
+                                    <input matInput formControlName="emp_name">
+                                </mat-form-field>
+        
+                                <mat-form-field class="col-md-12 ">
+                                    <mat-label class="text-success">Email <em>*</em> </mat-label>
+                                    <input matInput formControlName="emp_email">
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="col-md-12 ">
+                                    <mat-label class="text-success">Mobile Number <em>*</em> </mat-label> 
+                                    <input matInput formControlName="emp_mobile">
+                                </mat-form-field>
+        
+        
+                                <mat-form-field class="col-md-12 ">
+                                    <mat-label class="text-success">Date of Birth <em>*</em> </mat-label> 
+                                    <input matInput [matDatepicker]="dateofbirth" formControlName="emp_dob" (click)="dateofbirth.open()" [max]="TodayDate">
+        
+                                    <mat-datepicker-toggle [for]="dateofbirth" matSuffix></mat-datepicker-toggle>
+                                    <mat-datepicker #dateofbirth></mat-datepicker>
+                                </mat-form-field>
+                                <mat-form-field class="col-md-12 ">
+                                    <mat-label class="text-success">Date of Joining <em>*</em> </mat-label> 
+                                    <input matInput [matDatepicker]="dateofjoin" formControlName="emp_doj" (click)="dateofjoin.open()" [max]="TodayDate">
+        
+                                    <mat-datepicker-toggle [for]="dateofjoin" matSuffix></mat-datepicker-toggle>
+                                    <mat-datepicker #dateofjoin></mat-datepicker>
+                                </mat-form-field>
+                                <mat-form-field class="col-md-12">
+
+                                    <mat-label class="text-success">Position <em>*</em> </mat-label> 
+                                    <mat-select name="emp_position" formControlName="emp_position">
+                                        <mat-option value="USER">User</mat-option>
+                                        <mat-option value="ROLE_ADMIN">Admin</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+        
+                            <div formGroupName="emp_address">
+                                <div class="row">
+                                    <mat-form-field class="col-md-12 ">
+                                        <mat-label class="text-success">Street Name <em>*</em></mat-label> 
+                                        <input matInput formControlName="local">
+        
+                                    </mat-form-field>
+        
+                                    <mat-form-field class="col-md-12 ">
+                                        <mat-label class="text-success">City <em>*</em></mat-label> 
+                                        <input matInput formControlName="city">
+        
+                                    </mat-form-field>
+        
+                                    <mat-form-field class="col-md-12">
+                                        <mat-label class="text-success">State <em>*</em> </mat-label> 
+                                        <input matInput formControlName="state">
+                                    </mat-form-field>
+                                </div>
+                                <div class="row">
+                                    <mat-form-field class="col-md-12 ">
+                                        <mat-label class="text-success">Country <em>*</em> </mat-label> 
+                                        <input matInput formControlName="country">
+                                    </mat-form-field>
+        
+                                    <mat-form-field class="col-md-12 ">
+                                        <mat-label class="text-success">Pin Code <em>*</em> </mat-label> 
+                                        <input matInput formControlName="pincode">
+        
+                                    </mat-form-field>
+                                </div>
+                            </div>
+        
+                            <div class="col-md-12 col-12 text-center">
+                                <button class="btn btn-success" (click)="submit()" [disabled]="userForm.invalid"><i
+            class="fa fa-save "></i>&nbsp;Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+                </div>
+    </div>
+</div>

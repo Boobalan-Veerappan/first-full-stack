@@ -1,0 +1,46 @@
+<!-- <p>masterlogin works!</p>
+
+<input   name="user"><br>
+<input   name="pass">
+
+<button (click)="login_save()">login</button> -->
+<!-- <button [routerLink]="['/login/user']"> user</button>
+<button [routerLink]="['/login/admin']"> admin</button> -->
+
+<div class="jumbotron bg-login h-100">
+    <div class="container">
+<div class="text-center">
+        <h3 class="header" >Employee Details</h3>
+    </div>
+        <div class="row">
+
+
+            <div class="col-md-6 py-5 offset-md-3 bg-white box-shawdow">
+<div >
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" [(ngModel)]="user"  class="form-control"  />
+        
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" [(ngModel)]="pass"  class="form-control" />
+        
+    </div>
+    <div class="form-group text-center">
+        <button (click)="login_save()" class="btn btn-primary">Login</button>
+    </div>
+    <div *ngIf="invalidcredial">
+        <div class="text-center text-danger">
+            Username and Password Wrong
+        </div>
+        
+        </div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+

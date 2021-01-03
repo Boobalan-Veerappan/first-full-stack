@@ -1,0 +1,14 @@
+
+<nav class="py-3 px-3 navbar-light mb-3 cursor text-white">
+    <span class="p-3" [ngClass]="{'active': nav=='home'}" (click)="navchange('home')" [routerLink]="['/login/user']">Home</span>
+ 
+      <span class="p-3" [ngClass]="{'active': nav=='profile'}" (click)="navchange('profile')" [routerLink]="['update']">Profile</span>
+   
+   <div class="float-right text-white margin-top-16px">
+  {{login.currentUser?.emp_name}} ( User )
+  <span class="p-3"  (click)="logout()" > Logout</span>
+  <img mat-card-image class="width-50-h-50 m-0 rounded-circle "
+   [src]="login.currentUser?.image_url!=null?login.currentUser?.image_url:myImgUrl" alt="your image">
+   </div>
+    </nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,116 @@
+<div class="float-right" [routerLink]="['/login/admin']"><i class="fa fa-angle-left"></i> &nbsp;Back</div>
+<div class="row">
+    
+    <div class="offset-md-2 col-md-5">
+        <div class="text-center">
+        <h3 >My Profile</h3>
+    </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <form [formGroup]="userForm">
+                        <div class="row">
+
+
+
+
+                            <mat-form-field class="col-md-12 ">
+                                <mat-label class="text-success">Employee Name <em>*</em> </mat-label>
+                                <input matInput formControlName="emp_name">
+                            </mat-form-field>
+
+                            <mat-form-field class="col-md-12 ">
+                                <mat-label class="text-success">Email <em>*</em></mat-label>
+                                <input matInput formControlName="emp_email">
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-form-field class="col-md-12 ">
+                                <mat-label class="text-success">Mobile Number <em>*</em> </mat-label>
+                                <input matInput formControlName="emp_mobile">
+                            </mat-form-field>
+
+
+                            <mat-form-field class="col-md-12 ">
+                                <mat-label class="text-success">Date of Birth <em>*</em> </mat-label>
+                                <input matInput [matDatepicker]="dateofbirth" formControlName="emp_dob"
+                                    (click)="dateofbirth.open()" [max]="TodayDate">
+
+                                <mat-datepicker-toggle [for]="dateofbirth" matSuffix></mat-datepicker-toggle>
+                                <mat-datepicker #dateofbirth></mat-datepicker>
+                            </mat-form-field>
+                            <mat-form-field class="col-md-12 ">
+                                <mat-label class="text-success">Date of Joining <em>*</em> </mat-label>
+                                <input matInput [matDatepicker]="dateofjoin" formControlName="emp_doj"
+                                    (click)="dateofjoin.open()" [max]="TodayDate">
+
+                                <mat-datepicker-toggle [for]="dateofjoin" matSuffix></mat-datepicker-toggle>
+                                <mat-datepicker #dateofjoin></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-form-field class="col-md-12">
+
+                                <mat-label class="text-success">Position <em>*</em> </mat-label>
+                                <mat-select name="emp_position" formControlName="emp_position">
+                                    <mat-option value="USER">User</mat-option>
+                                    <mat-option value="ROLE_ADMIN">Admin</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div formGroupName="emp_address">
+                            <div class="row">
+                                <mat-form-field class="col-md-12 ">
+                                    <mat-label class="text-success">Street Name <em>*</em> </mat-label>
+                                    <input matInput formControlName="local">
+
+                                </mat-form-field>
+
+                                <mat-form-field class="col-md-12 ">
+                                    <mat-label class="text-success">City <em>*</em> </mat-label>
+                                    <input matInput formControlName="city">
+
+                                </mat-form-field>
+
+                                <mat-form-field class="col-md-12">
+                                    <mat-label class="text-success">State <em>*</em> </mat-label>
+                                    <input matInput formControlName="state">
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="col-md-12 ">
+                                    <mat-label class="text-success">Country <em>*</em> </mat-label>
+                                    <input matInput formControlName="country">
+                                </mat-form-field>
+
+                                <mat-form-field class="col-md-12 ">
+                                    <mat-label class="text-success">Pin Code <em>*</em> </mat-label>
+                                    <input matInput formControlName="pincode">
+
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-12 text-center">
+                            <button class="btn btn-success" (click)="submit()" [disabled]="userForm.invalid"><i
+                                    class="fa fa-save "></i>&nbsp;Update</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="height-200px image-size w-100 text-center mt-3">
+            <img class="rounded-circle" [src]="userForm.value.image_url!=null?userForm.value.image_url:myImgUrl">
+        </div>
+        <div class="text-center">
+            <input class="upload " id="file_browse" title="Browse image" type="file"
+                (change)="onFileChange($event)" />
+        </div>
+    </div>
+
+</div>
