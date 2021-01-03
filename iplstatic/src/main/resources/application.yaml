@@ -1,0 +1,33 @@
+app:
+ teams:
+  - city: "Mumbai, Maharashtra"
+    coach: "Mahela Jaywardene"
+    home: "Wankhede Stadium, Mumbai"
+    label: MI
+    name: "Mumbai Indians"
+    players: 
+    - name: "Rohit Sharma (R)"
+      price: 150000000
+      role: Batsman
+    - name: "Anmolpreet Singh (R)"
+      price: 8000000
+      role: Batsman
+    - name: "Ankul Roy (R)"
+      price: 2000000
+      role: Batsman
+  - city: "Delhi, NCR"
+    coach: "Ricky Ponting"
+    home: "Feroz Shah Kotla Ground"
+    label: DC
+    name: "Delhi Capitals"
+    players: 
+    - name: "Shreyas Iyer (R)"
+      price: 70000000
+      role: Batsman
+    - name: "Ajinkya Rahane (R)"
+      price: 52500000
+      role: Batsman
+    - name: "Avesh Khan (R)"
+      price: 7000000
+      role: Batsman
+

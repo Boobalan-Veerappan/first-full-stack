@@ -1,0 +1,114 @@
+[
+	{
+		"usn": "123",
+		"name": "boobalan",
+		"sem": "3",
+		"email":"boobalanv2016@gmail.com",
+		"subject": [
+			{
+				"sub":"math",
+				"mark":93
+			},
+			{
+				"sub":"Science",
+				"mark":93
+			},
+			{
+				"sub":"Social",
+				"mark":90
+			},
+			{
+				"sub":"English",
+				"mark":81
+			},
+			{
+				"sub":"Tamil",
+				"mark":87
+			}
+		]
+	},
+	{
+		"usn": "456",
+		"name": "raghul",
+		"sem": "3",
+		"email":"raghul@gmail.com",
+		"subject": [
+			{
+				"sub":"math",
+				"mark":85
+			},
+			{
+				"sub":"Science",
+				"mark":91
+			},
+			{
+				"sub":"Social",
+				"mark":97
+			},
+			{
+				"sub":"English",
+				"mark":75
+			},
+			{
+				"sub":"Tamil",
+				"mark":93
+			}
+		]
+	},
+	{
+		"usn": "789",
+		"name": "Guna",
+		"sem": "5",
+		"email":"guna@gmail.com",
+		"subject": [
+			{
+				"sub":"math",
+				"mark":85
+			},
+			{
+				"sub":"Science",
+				"mark":86
+			},
+			{
+				"sub":"Social",
+				"mark":90
+			},
+			{
+				"sub":"English",
+				"mark":76
+			},
+			{
+				"sub":"Tamil",
+				"mark":90
+			}
+		]
+	},
+	{
+		"usn": "111",
+		"name": "Vinoth",
+		"sem": "6",
+		"email":"boobalanv2016@gmail.com",
+		"subject": [
+			{
+				"sub":"math",
+				"mark":95
+			},
+			{
+				"sub":"Science",
+				"mark":100
+			},
+			{
+				"sub":"Social",
+				"mark":97
+			},
+			{
+				"sub":"English",
+				"mark":98
+			},
+			{
+				"sub":"Tamil",
+				"mark":90
+			}
+		]
+	}
+]

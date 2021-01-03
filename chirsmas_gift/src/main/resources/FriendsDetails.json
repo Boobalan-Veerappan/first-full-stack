@@ -1,0 +1,39 @@
+[
+	{
+		"name": "boobalan",
+		"email": "boobalanv2016@gmail.com",
+		"address": "4/215, pavadi street,Namakkal",
+		"town": "Kandampalayam",
+		"phone": "7200212302"
+	},
+	{
+		"name": "Raghul",
+		"email": "Raghulv@gmail.com",
+		"address": "4/215,pavadi street,Namakkal",
+		"town": "Kandampalayam",
+		"phone": "9123520948"
+	},
+	{
+		"name": "Kavin",
+		"email": "Kavin@gmail.com",
+		"address": "4/790,Ayyapan Street , V-Block, Kovaipudur",
+		"town": "Coimbatore",
+		"phone": "8667791490"
+	},
+	{
+		"name": "Guna",
+		"email": "Guna@gmail.com",
+		"address": "7/20 crosscut road , kumaran plate , 3 block",
+		"town": "salem",
+		"phone": "7810836808"
+	},
+	{
+		"name": "Asif",
+		"email": "Asif@gmail.com",
+		"address": "6/254, ragavan plate , namakkal highway ",
+		"town": "Namakkal",
+		"phone": "1234567890"
+	}
+
+]
+

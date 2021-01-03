@@ -1,0 +1,42 @@
+package com.heraizen.employee.config;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@Configuration
+
+@EnableSwagger2
+@ComponentScan({"com.baeldung.freemarker"})
+public class SpringFoxConfig {
+
+	@Bean
+	public ModelMapper model() {
+		
+		return new ModelMapper();
+	}
+	
+	@Bean
+	public Docket api() {
+		return new Docket(DocumentationType.SWAGGER_2).select()
+				.apis(RequestHandlerSelectors.basePackage("com.heraizen.employee.controller")).paths(PathSelectors.any())
+				.build().apiInfo(apiInfo());
+	}
+
+	private ApiInfo apiInfo() {
+		Contact contact = new Contact("Admin", "http://heraizen.com", "manojhennagara@gamil.com");
+		return new ApiInfoBuilder().title("Employee Management System").contact(contact).build();
+	}
+	
+}
